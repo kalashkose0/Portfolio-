@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   // List<String> navTitle = [
   //   "Home",
   //   "Skills",
-  //   "Proje ct",
+  //   "Project",
   //   "Contact",
   //   "Blog",
   // ];
