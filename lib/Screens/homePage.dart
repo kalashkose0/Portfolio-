@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:porfolio/Constants/colors.dart';
 import 'package:porfolio/Constants/navTitleItems.dart';
+import 'package:porfolio/Constants/skills_item.dart';
 import 'package:porfolio/widgets/drawerMobile.dart';
 import 'package:porfolio/widgets/headerDesktop.dart';
 import 'package:porfolio/widgets/headerMobile.dart';
@@ -57,8 +58,44 @@ class _HomePageState extends State<HomePage> {
 
             // skill
             Container(
-              height: 500,
-              width: double.maxFinite,
+              width: screenWidth,
+              padding: EdgeInsets.fromLTRB(25, 20, 25, 60),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    "What I can do",
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: customColor.whitePrimary,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      // platforms
+                      Wrap(
+                        children: [
+                          for (int i = 0; i < platformItems.length; i++)
+                            Container(
+                              width: 200,
+                              decoration: BoxDecoration(
+                                color: customColor.bgLight2,
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: ListTile(
+                                leading: Image.asset(""),
+                                title: Text(""),
+                              ),
+                            )
+                        ],
+                      )
+
+                      // skills
+                    ],
+                  )
+                ],
+              ),
             ),
             // Project
             Container(

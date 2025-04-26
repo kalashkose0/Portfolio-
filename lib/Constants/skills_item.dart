@@ -2,54 +2,54 @@ import 'package:flutter/material.dart';
 
 const List<Map> platformItems = [
   {
-    "img": "assets/images/AA_logo.png",
+    "img": "assets/images/android_icon.png",
     "title": "Android Dev",
   },
   {
-    "img": "assets/images/www.png",
+    "img": "assets/images/web_icon.png",
     "title": "Web Dev",
   },
   {
-    "img": "assets/images/icons8-apple-logo-50.png",
+    "img": "assets/images/ios_icon.png",
     "title": "IOS Dev",
   },
   // {
-  //   "img": "assets/images/AA_logo.png",
+  //   "img": "assets/images/desktop_icon.png",
   //   "title": "Android Dev",
   // },
 ];
 
 const List<Map> skillItem = [
   {
-    "img": "assets/images/Flutter Icon.png",
-    "title": "IOS Dev",
+    "img": "assets/images/flutter.png",
+    "title": "Flutter",
   },
   {
-    "img": "assets/images/icons8-apple-logo-50.png",
-    "title": "IOS Dev",
+    "img": "assets/images/dart.png",
+    "title": "Dart",
   },
   {
-    "img": "assets/images/icons8-apple-logo-50.png",
-    "title": "IOS Dev",
+    "img": "assets/images/html5.png",
+    "title": "HTML5",
   },
   {
-    "img": "assets/images/icons8-apple-logo-50.png",
-    "title": "IOS Dev",
+    "img": "assets/images/css3.png",
+    "title": "CSS3",
   },
   {
-    "img": "assets/images/icons8-apple-logo-50.png",
-    "title": "IOS Dev",
+    "img": "assets/images/rest-api-icon.png",
+    "title": "RESTfull",
   },
   {
-    "img": "assets/images/icons8-apple-logo-50.png",
-    "title": "IOS Dev",
+    "img": "assets/images/mysql.png",
+    "title": "MYSQL",
   },
   {
-    "img": "assets/images/icons8-apple-logo-50.png",
-    "title": "IOS Dev",
+    "img": "assets/images/Java.png",
+    "title": "Java",
   },
   {
-    "img": "assets/images/icons8-apple-logo-50.png",
-    "title": "IOS Dev",
+    "img": "assets/images/vscode.png",
+    "title": "VS Code",
   },
 ];
