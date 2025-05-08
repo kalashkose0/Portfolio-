@@ -75,6 +75,8 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       // platforms
                       Wrap(
+                        // Creates a wrap layout.
+                        // By default, the wrap layout is horizontal and both the children and the runs are aligned to the start.
                         children: [
                           for (int i = 0; i < platformItems.length; i++)
                             Container(
