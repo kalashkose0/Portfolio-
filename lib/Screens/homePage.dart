@@ -89,11 +89,11 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+             const SizedBox(height: 30),
             // Project
             Container(
-              height: 500,
-              width: double.maxFinite,
-              color: Colors.blueGrey,
+              width: screenWidth,
+              
             ),
             // Contact
             Container(

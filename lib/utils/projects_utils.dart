@@ -80,21 +80,18 @@ List<ProjectUtils> workProjectUtils = [
     title: 'Quiz App',
     subtitle:
         'This is a quiz app for students to practice and compete with each other.',
-    webLink: 'https://www.elo.best',
+    webLink: '',
   ),
   ProjectUtils(
     image: 'assets/projects/nexusbuild img.png',
     title: 'Nexus Build App',
-    subtitle:
-        'This is a construction management app for Nexus Build company.',
-    webLink: 'https://www.elo.best',
+    subtitle: 'This is a construction management app for Nexus Build company.',
+    webLink: '',
   ),
   ProjectUtils(
     image: 'assets/projects/wallpaper image.png',
     title: 'Wallpaper App',
-    subtitle:
-        'This is a wallpaper app for android mobile phones.',
-    webLink: 'https://www.elo.best',
+    subtitle: 'This is a wallpaper app for android mobile phones.',
+    webLink: '',
   ),
-  
 ];
