@@ -107,6 +107,12 @@ final List<ProjectUtils> projectList = [
     platforms: ['web'],
   ),
   ProjectUtils(
+    title: "Breaking News App",
+    description: "This is a breaking news app for android mobile phones.",
+    imagePath: "assets/projects/quiz image.png",
+    platforms: ['web'],
+  ),
+  ProjectUtils(
     title: "Wallpaper App",
     description: "This is a wallpaper app for android mobile phones.",
     imagePath: "assets/projects/wallpaper image.png",

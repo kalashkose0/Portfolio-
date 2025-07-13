@@ -92,35 +92,37 @@ class _HomePageState extends State<HomePage> {
             ),
             const SizedBox(height: 30),
             // Project
-            Container(
-              width: screenWidth,
-              padding: EdgeInsets.fromLTRB(25, 20, 25, 60),
-              color: customColor.bgLight1,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    "Work Projects",
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: customColor.whitePrimary,
+            Center(
+              child: Container(
+                width: screenWidth,
+                padding: EdgeInsets.fromLTRB(25, 20, 25, 60),
+                color: customColor.bgLight1,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Work Projects",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: customColor.whitePrimary,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Container(
-                    height: 350,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: projectList.length,
-                      itemBuilder: (context, index) {
-                        return buildProjectCard(projectList[index]);
-                      },
+                    SizedBox(
+                      height: 50,
                     ),
-                  ),
-                ],
+                    Container(
+                      height: 350,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: projectList.length,
+                        itemBuilder: (context, index) {
+                          return buildProjectCard(projectList[index]);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(
@@ -182,7 +184,7 @@ Widget buildProjectCard(ProjectUtils project) {
       borderRadius: BorderRadius.circular(16),
     ),
     child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         ClipRRect(
           borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
