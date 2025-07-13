@@ -21,7 +21,7 @@ class MainMobileUserInfo extends StatelessWidget {
           Center(
             child: CircleAvatar(
               radius: 110,
-              backgroundImage: AssetImage("assets/images/image.jpeg"),
+              backgroundImage: AssetImage("assets/images/kalash.jpeg"),
               backgroundColor: Colors.transparent,
             ),
           ),

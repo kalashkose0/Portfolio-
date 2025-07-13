@@ -55,7 +55,7 @@ class MaindesktopUserinfo extends StatelessWidget {
           ),
           CircleAvatar(
             radius: 180,
-            backgroundImage: AssetImage("assets/images/image.jpeg"),
+            backgroundImage: AssetImage("assets/images/kalash.jpeg"),
             backgroundColor: Colors.transparent,
           ),
         ],

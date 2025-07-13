@@ -118,4 +118,10 @@ final List<ProjectUtils> projectList = [
     imagePath: "assets/projects/wallpaper image.png",
     platforms: ['web'],
   ),
+  ProjectUtils(
+    title: "FixItFast App",
+    description: "This is a fix it fast app for android mobile phones.",
+    imagePath: "assets/images/www.png",
+    platforms: ['web'],
+  ),
 ];
