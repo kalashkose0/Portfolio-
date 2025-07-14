@@ -22,8 +22,9 @@ class _HomePageState extends State<HomePage> {
   final GlobalKey homeKey = GlobalKey();
   final GlobalKey skillsKey = GlobalKey();
   final GlobalKey projectsKey = GlobalKey();
+  final GlobalKey contactKey = GlobalKey();
 
-  final ScrollController _scrollController = ScrollController();
+  final ScrollController scrollController = ScrollController();
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -40,154 +41,162 @@ class _HomePageState extends State<HomePage> {
           key: scaffoldKey,
           backgroundColor: customColor.ScaffoldBg,
           endDrawer: isDesktop ? null : DrawerMobile(),
-          body: ListView(
-            controller: _scrollController,
-            children: [
-              // Header
-              isDesktop
-                  ? const HeaderDesktop()
-                  : HeaderMobile(
-                      onLogoTap: () {},
-                      onMenuTap: () {
-                        scaffoldKey.currentState?.openEndDrawer();
-                      },
-                    ),
-
-              // User Info
-              isDesktop
-                  ? const MaindesktopUserinfo()
-                  : const MainMobileUserInfo(),
-
-              const SizedBox(height: 5),
-
-              // Skills Section
-              Container(
-                width: screenWidth,
-                padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-                color: customColor.bgLight1,
-                child: Column(
-                  children: [
-                    Text(
-                      "What I can do",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: customColor.whitePrimary,
-                      ),
-                    ),
-                    const SizedBox(height: 50),
-                    isWide ? const Skillsdesktop() : const Skilsmobile(),
-                  ],
+          body: SingleChildScrollView(
+            controller: scrollController,
+            scrollDirection: Axis.vertical,
+            child: Column(
+              children: [
+                SizedBox(
+                  key: homeKey,
                 ),
-              ),
-
-              const SizedBox(height: 30),
-
-              // Projects Section
-              Container(
-                width: screenWidth,
-                padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-                color: customColor.bgLight1,
-                child: Column(
-                  children: [
-                    Text(
-                      "Work Projects",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: customColor.whitePrimary,
-                      ),
-                    ),
-                    const SizedBox(height: 50),
-                    SizedBox(
-                      height: 350,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: projectList.length,
-                        itemBuilder: (context, index) {
-                          return buildProjectCard(projectList[index]);
+                // Header
+                isDesktop
+                    ? const HeaderDesktop()
+                    : HeaderMobile(
+                        onLogoTap: () {},
+                        onMenuTap: () {
+                          scaffoldKey.currentState?.openEndDrawer();
                         },
                       ),
-                    ),
-                  ],
-                ),
-              ),
 
-              const SizedBox(height: 50),
+                // User Info
+                isDesktop
+                    ? const MaindesktopUserinfo()
+                    : const MainMobileUserInfo(),
 
-              // Contact Section
-              Container(
-                color: const Color(0xFF1A1E2D),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Get in touch',
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 30),
+                const SizedBox(height: 5),
 
-                    // Name & Email Fields
-                    Wrap(
-                      spacing: 20,
-                      runSpacing: 20,
-                      alignment: WrapAlignment.center,
-                      children: [
-                        _buildInputField(hint: "Your name", width: 300),
-                        _buildInputField(hint: "Your email", width: 300),
-                      ],
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    // Message Field
-                    _buildInputField(
-                        hint: "Your message", maxLines: 8, width: 640),
-
-                    const SizedBox(height: 20),
-
-                    // Submit Button
-                    SizedBox(
-                      width: 640,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFF8A51B),
-                          padding: const EdgeInsets.symmetric(vertical: 18),
+                // Skills Section
+                Container(
+                  key: skillsKey,
+                  width: screenWidth,
+                  padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
+                  color: customColor.bgLight1,
+                  child: Column(
+                    children: [
+                      Text(
+                        "What I can do",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: customColor.whitePrimary,
                         ),
-                        child: const Text(
-                          "Get in touch",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
+                      ),
+                      const SizedBox(height: 50),
+                      isWide ? const Skillsdesktop() : const Skilsmobile(),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(height: 30),
+
+                // Projects Section
+                Container(
+                  key: projectsKey,
+                  width: screenWidth,
+                  padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
+                  color: customColor.bgLight1,
+                  child: Column(
+                    children: [
+                      Text(
+                        "Work Projects",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: customColor.whitePrimary,
+                        ),
+                      ),
+                      const SizedBox(height: 50),
+                      SizedBox(
+                        height: 350,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: projectList.length,
+                          itemBuilder: (context, index) {
+                            return buildProjectCard(projectList[index]);
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(height: 50),
+
+                // Contact Section
+                Container(
+                  color: const Color(0xFF1A1E2D),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+                  width: double.infinity,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Get in touch',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+
+                      // Name & Email Fields
+                      Wrap(
+                        spacing: 20,
+                        runSpacing: 20,
+                        alignment: WrapAlignment.center,
+                        children: [
+                          _buildInputField(hint: "Your name", width: 300),
+                          _buildInputField(hint: "Your email", width: 300),
+                        ],
+                      ),
+
+                      const SizedBox(height: 20),
+
+                      // Message Field
+                      _buildInputField(
+                          hint: "Your message", maxLines: 8, width: 640),
+
+                      const SizedBox(height: 20),
+
+                      // Submit Button
+                      SizedBox(
+                        width: 640,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFFF8A51B),
+                            padding: const EdgeInsets.symmetric(vertical: 18),
+                          ),
+                          child: const Text(
+                            "Get in touch",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
                           ),
                         ),
                       ),
-                    ),
 
-                    const SizedBox(height: 30),
+                      const SizedBox(height: 30),
 
-                    // Social Icons
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        _buildSocialIcon("assets/images/github.png"),
-                        _buildSocialIcon("assets/images/linkedin.png"),
-                        _buildSocialIcon("assets/images/facebook.png"),
-                        _buildSocialIcon("assets/images/instagram.png"),
-                      ],
-                    )
-                  ],
+                      // Social Icons
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          _buildSocialIcon("assets/images/github.png"),
+                          _buildSocialIcon("assets/images/linkedin.png"),
+                          _buildSocialIcon("assets/images/facebook.png"),
+                          _buildSocialIcon("assets/images/instagram.png"),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
