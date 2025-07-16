@@ -40,7 +40,11 @@ class _HomePageState extends State<HomePage> {
         return Scaffold(
           key: scaffoldKey,
           backgroundColor: customColor.ScaffoldBg,
-          endDrawer: isDesktop ? null : DrawerMobile(),
+          endDrawer: isDesktop
+              ? null
+              : DrawerMobile(
+                  onNavItemTap: (index) {},
+                ),
           body: SingleChildScrollView(
             controller: scrollController,
             scrollDirection: Axis.vertical,
@@ -51,7 +55,11 @@ class _HomePageState extends State<HomePage> {
                 ),
                 // Header
                 isDesktop
-                    ? const HeaderDesktop()
+                    ? HeaderDesktop(
+                        onNavMenuTap: (index) {
+                         
+                        },
+                      )
                     : HeaderMobile(
                         onLogoTap: () {},
                         onMenuTap: () {
@@ -202,9 +210,16 @@ class _HomePageState extends State<HomePage> {
       },
     );
   }
+
+  // void scrollToSection(int navIndex) {
+  //   scrollController.animateTo(
+  //     navIndex == 0 ? 0 : (navIndex * screenSize.height),
+  //     duration: const Duration(milliseconds: 500),
+  //     curve: Curves.easeInOut,
+  //   );
+  // }
 }
 
-// ========== Helper Widgets ==========
 
 Widget buildProjectCard(ProjectUtils project) {
   return Container(

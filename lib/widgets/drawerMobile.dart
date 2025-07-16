@@ -3,7 +3,8 @@ import 'package:porfolio/Constants/colors.dart';
 import 'package:porfolio/Constants/navTitleItems.dart';
 
 class DrawerMobile extends StatelessWidget {
-  const DrawerMobile({super.key});
+  const DrawerMobile({super.key, required this.onNavItemTap});
+  final Function(int) onNavItemTap;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class DrawerMobile extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                icon: Icon(Icons.close),
+                icon: Icon(Icons.close),        
               ),
             ),
           ),
@@ -31,7 +32,10 @@ class DrawerMobile extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
               ),
-              onTap: () {},
+              onTap: () {
+                onNavItemTap(i);
+                Navigator.of(context).pop(); // Close the drawer after selection
+              },
               leading: Icon(navIcons[i]),
               title: Text(navTitle[i]),
             )
